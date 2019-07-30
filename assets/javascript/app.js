@@ -21,96 +21,78 @@ const triviaQuestions = [{
 }];
 
 
-var gifArray = ['question1', 'question2', 'question3', 'question4', 'question5', 'question6', 'question7', 'question8', 'question9', 'question10', 'question11', 'question12', 'question13', 'question14', 'question15'];
+const gifArray = ['question1', 'question2', 'question3', 'question4', 'question5'];
 
-var currentQuestion; var correctAnswer; var incorrectAnswer; var unanswered; var seconds; var time; var answered; var userSelect;
+let currentQuestion;
+let correctAnswer; 
+let incorrectAnswer; 
+let unanswered; 
+let seconds; 
+let time; 
+let answered; 
+let userSelect;
 
-var messages = {
+const messages = {
 
-    correct: "Yes, that's right!",
+    correct: "Yes, you are an 80s master!",
 
-    incorrect: "No, that's not it.",
+    incorrect: "No, when were you born?",
 
-    endTime: "Out of time!",
+    endTime: "Out of time! Now back to the future!",
 
     finished: "Alright! Let's see how well you did."
 
 }
 
+$("#startBtn").html("Let's Get This Party Started!");
+$("#banner").html("<img src='./assets/images/Totally_80s_Banner.png' width='100%' height='200px' alt='totally eighties banner'>");
 
 
 $('#startBtn').on('click', function () {
-
     $(this).hide();
-
     newGame();
-
 });
 
 
 
 $('#startOverBtn').on('click', function () {
-
     $(this).hide();
-
     newGame();
-
 });
 
 
 
 function newGame() {
-
     $('#finalMessage').empty();
-
     $('#correctAnswers').empty();
-
     $('#incorrectAnswers').empty();
-
     $('#unanswered').empty();
-
     currentQuestion = 0;
-
     correctAnswer = 0;
-
     incorrectAnswer = 0;
-
     unanswered = 0;
 
     newQuestion();
-
 }
 
 
 
 function newQuestion() {
-
     $('#message').empty();
-
     $('#correctedAnswer').empty();
-
     $('#gif').empty();
 
     answered = true;
 
 
-
-    //sets up new questions & answerList
-
     $('#currentQuestion').html('Question #' + (currentQuestion + 1) + '/' + triviaQuestions.length);
-
     $('.question').html('<h2>' + triviaQuestions[currentQuestion].question + '</h2>');
 
     for (var i = 0; i < 4; i++) {
-
         var choices = $('<div>');
-
         choices.text(triviaQuestions[currentQuestion].answerList[i]);
-
         choices.attr({ 'data-index': i });
-
         choices.addClass('thisChoice');
-
         $('.answerList').append(choices);
 
     }
@@ -118,7 +100,6 @@ function newQuestion() {
     countdown();
 
     $('.thisChoice').on('click', function () {
-
         userSelect = $(this).data('index');
         clearInterval(time);
         answerPage();
@@ -144,9 +125,7 @@ function showCountdown() {
 
     seconds--;
     $('#timeLeft').html('<h3>Time Remaining: ' + seconds + '</h3>');
-
     if (seconds < 1) {
-
         clearInterval(time);
         answered = false;
         answerPage();
@@ -166,7 +145,7 @@ function answerPage() {
 
     var rightAnswerText = triviaQuestions[currentQuestion].answerList[triviaQuestions[currentQuestion].answer];
     var rightAnswerIndex = triviaQuestions[currentQuestion].answer;
-    $('#gif').html('<img src = "assets/images/' + gifArray[currentQuestion] + '.gif" width = "400px">');
+    $('#gif').html('<img src = "assets/images/' + gifArray[currentQuestion] + '.jpg" width = "400px">');
 
 
     if ((userSelect == rightAnswerIndex) && (answered == true)) {
