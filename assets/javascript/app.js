@@ -84,3 +84,10 @@ function newQuestion(){
 	});
 
 };
+
+function countdown(){
+	seconds = 15;
+	$('#timeLeft').html('<h3>Time Remaining: ' + seconds + '</h3>');
+	answered = true;
+	time = setInterval(showCountdown, 1000);
+}
