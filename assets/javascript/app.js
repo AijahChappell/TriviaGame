@@ -58,3 +58,29 @@ function newGame(){
 	unanswered = 0;
 	newQuestion();
 };
+
+function newQuestion(){
+	$('#message').empty();
+	$('#correctedAnswer').empty();
+	$('#gif').empty();
+	answered = true;
+	$('#currentQuestion').html('Question #'+(currentQuestion+1)+'/'+triviaQuestions.length);
+	$('.question').html('<h2>' + triviaQuestions[currentQuestion].question + '</h2>');
+
+    for(var i = 0; i < 4; i++){
+		var choices = $('<div>');
+		choices.text(triviaQuestions[currentQuestion].answerList[i]);
+		choices.attr({'data-index': i });
+		choices.addClass('thisChoice');
+		$('.answerList').append(choices);
+    }
+    countdown();
+
+	$('.thisChoice').on('click',function(){
+
+		userSelect = $(this).data('index');
+		clearInterval(time);
+		answerPage();
+	});
+
+};
