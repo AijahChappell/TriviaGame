@@ -34,4 +34,27 @@ const messages = {
     incorrect: "No, you are not a student of the 80s...",
     endTime: "Out of time!",
     finished: "Good job! Here's your score."
-}
+};
+
+$('#startBtn').on('click', function () {
+    $(this).hide();
+    newGame();
+});
+
+
+$('#startOverBtn').on('click', function () {
+    $(this).hide();
+    newGame();
+});
+
+function newGame(){
+	$('#finalMessage').empty();
+	$('#correctAnswers').empty();
+	$('#incorrectAnswers').empty();
+	$('#unanswered').empty();
+	currentQuestion = 0;
+	correctAnswer = 0;
+	incorrectAnswer = 0;
+	unanswered = 0;
+	newQuestion();
+};
