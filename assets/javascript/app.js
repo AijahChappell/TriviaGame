@@ -18,10 +18,23 @@ const triviaQuestions = [{
     question: "Which movie featured the song Power of Love?",
     answerList: ["Beverl Hills Cop", "An Officer and a Gentlemen", "Risky Business", "Back to the Future"],
     answer: 3
-}];
+}, {
+    question: "The song 'Hazy Shade of Winter', recorded by the Bangles, was included on which movie soundtrack?",
+    answerList: ["Youngblood", "Rush", "Less Than Zero", "The Breakfast Club"],
+    answer: 2
+}, {
+    question: "Which Member of the Go-Gos released an album titled 'Fur' with the forgettable single 'Rush Hour'?",
+    answerList: ["Belinda Carlisle", "Susanna Hoffs", "Kim Gordon", "Jane Weidlin"],
+    answer: 3
+}, {
+    question: "Who sang 'I Know What Boys Like'?",
+    answerList: ["Bow Wow Wow", "The Waitresses", "Bananarama", "Cyndi Lauper"],
+    answer: 1
+}
+];
 
 
-const gifArray = ['question1', 'question2', 'question3', 'question4', 'question5'];
+const gifArray = ['question1', 'question2', 'question3', 'question4', 'question5', 'question6', 'question7', 'question8'];
 
 let currentQuestion;
 let correctAnswer; 
